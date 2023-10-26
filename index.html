@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        header{
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            align-items: center;
+        }
+        h1,h3{
+            font-weight: 400;
+        }
+        h1{
+            font-size: 30px;
+        }
+        h3{
+            font-size: 25px;
+        }
+        header ul{
+            display: flex;
+        }
+        header a{
+            text-decoration: none;
+            color: white;
+            font-weight: 300;
+        }
+        header li{
+            display: flex;
+            list-style: none;
+            margin-left: 15px;
+            font-weight: 300;
+        }
+        header li a:hover{
+            color: rgb(224, 224, 224);
+            transition: 0.9s ease-in-out;
+        }
+        .search{
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .search h1{
+            font-size: 55px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: white;
+            letter-spacing: 1.3px;
+        }
+        .dates{
+            background: #A5A5A5;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border-radius: 10px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+        #forYou{
+            text-align: center;
+            padding: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* width: 300px; */
+            border-top-right-radius: 10px;
+            border-top-left-radius: 10px;
+            padding-left: 20px;
+            padding-right: 20px;
+            height: 40px;
+            font-size: 25px;
+            font-weight: 500;
+        }
+        .inputVal{
+            padding: 20px;
+            background-color: white;
+            margin-top: -10px;
+            align-items: center;
+            display: flex;
+        }
+
+        .inputVal input{
+            padding: 10px;
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            margin-left: 10px;
+            background-color: rgb(210, 208, 208);
+            border: none;
+            outline: none;
+            color: white;
+        }
+        #searching{
+            padding: 15px;
+            background-color: black;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            border-radius: 15px;
+            color: white;
+            width: 150px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .mainItems{
+            display: flex;
+            align-items: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            cursor: pointer;
+            user-select: none;
+        }
+        .mainItems img{
+            height: 100px;
+
+        }
+        .items{
+            margin-left: 20px;
+        }
+        .items h3{
+            font-weight: 600;
+        }
+        .adver{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 50vh;
+            justify-content: space-between;
+            padding-left: 50px;
+            padding-right: 50px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        #destination{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        #destination h1{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+        }
+        #destination h4{
+            font-weight: 300;
+        }
+        .places{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .places div{
+            cursor: pointer;
+            box-shadow: 0px 3px 3px 3px rgb(209, 185, 183);
+            padding: 5px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+        #testimonal{
+            background-color: #6f42c1;
+            height: 60vh;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        #testimonal{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            user-select: none;
+        }
+        #testimonal h1{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 40px;
+            letter-spacing: 1.5px;
+
+        }
+        #testimonal p{
+            font-size: 18px;
+            width: 600px;
+            text-align: center;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        #final{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+        .mainItems{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+        .mainItemsDivs{
+            display: flex;
+            align-items: center;
+            margin-bottom: 50px;
+        }
+        #aaa{
+            height: 250px;
+            width: 300px;
+        }
+        #video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        }
+
+        #video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #content {
+            position: relative;
+            z-index: 1;
+            background-color: rgb(248, 172, 172);
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <section style="background: url(./bg.webp); height: 100vh; object-fit: cover;padding: 50px;">
+        <header>
+            <h1>Travello</h1>
+            <nav>
+                <ul>
+                    <li><a href="">Home</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Services</a></li>
+                    <li><a href="">News</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </nav>
+            <h3>Call Us: 0000-0000-0000</h3>
+        </header>
+        <div class="search">
+            <h1>Let us take you away</h1>
+            <div class="dates">
+                <div id="forYou">Search for you</div>
+                <div class="inputVal">
+                    <form action="">
+                        <input type="text" placeholder="City">
+                        <input type="text" placeholder="Departure">
+                        <input type="text" placeholder="Arrival">
+                        <input type="text" placeholder="Budget">
+                        <button id="searching" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- advertiseemtn -->
+    <section class="adver">
+        <div class="mainItems">
+            <img src="https://preview.colorlib.com/theme/travello/images/beach.svg" alt="advertisement">
+            <div class="items">
+                <h3>Top Destinations</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+            </div>
+        </div>
+        <div class="mainItems">
+            <img src="https://preview.colorlib.com/theme/travello/images/wallet.svg" alt="advertisement">
+            <div class="items">
+                <h3>The Best Price</h3>
+                <p>Sollicitudin mauris lobortis in.</p>
+            </div>
+        </div>
+        <div class="mainItems">
+            <img src="https://preview.colorlib.com/theme/travello/images/suitcase.svg" alt="advertisement">
+            <div class="items">
+                <h3>Amazing Services</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- destinations adevetisement -->
+    <section id="destination" style="font-family:Georgia, 'Times New Roman', Times, serif;">
+        <h4>SIMPLY AMAZING PLACES</h4>
+        <h1>Popular Destinations</h1>
+        <div class="places">
+            <div>
+                <img src="dess.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div>
+                <img src="ind.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div style="margin: 10px;">
+
+                <img src="san.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div>
+                <img src="pa.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div style="margin: 10px;">
+
+                <img src="pho.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div style="margin: 10px;">
+
+                <img src="myk.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div style="margin: 10px;">
+
+                <img src="dess.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+            <div style="margin: 10px;">
+
+                <img src="dess.webp" alt="dess" style="height: 300px; width: 300px; border-radius: 15px; object-fit: cover; cursor: pointer;">
+                <h3 style="font-weight: 700;">Bali</h3>
+                <p>Nulla pretium tincidunt felis, nec.</p>
+                <h4><strong>From $679</strong></h4>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonal">
+        <h3>SIMPLY AMAZING PLACES</h3>
+        <h1>Testimonials</h1>
+        <p><i>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis, sed delectus sapiente nesciunt veniam laboriosam ratione dolorem ducimus aliquid, illo dolorum, tenetur itaque reiciendis aut similique. Porro minus eligendi excepturi?</i></p>
+        <h2><i>Abhay Kumar Gupta, Author</i></h2>
+    </section>
+
+    <section id="final">
+        <div class="mainItems">
+            <div class="mainItemsDivs">
+                <img src="horse.webp" id="aaa" alt="advertisement">
+                <div class="items">
+                    <h2>02 June</h2>
+                    <h3>The Best Price</h3>
+                    <p>Sollicitudin mauris lobortis in.</p>
+                </div>
+            </div>
+            <div class="mainItemsDivs">
+                <img src="horse.webp" id="aaa" alt="advertisement">
+                <div class="items">
+                    <h2>02 June</h2>
+                    <h3>The Best Price</h3>
+                    <p>Sollicitudin mauris lobortis in.</p>
+                </div>
+            </div>
+            <div class="mainItemsDivs">
+                <img src="horse.webp" id="aaa" alt="advertisement">
+                <div class="items">
+                    <h2>02 June</h2>
+                    <h3>The Best Price</h3>
+                    <p>Sollicitudin mauris lobortis in.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mainItems">
+            <img src="bg.webp" alt="" style="height: 400px; width: 700px;" >
+        </div>
+    </section>
+
+    <footer>
+        <div id="video-container">
+            <iframe
+                id="video"
+                width="1920"
+                height="1080"
+                src="https://www.youtube.com/embed/y5vX8ZqkHaY?autoplay=1&mute=1&controls=0&loop=1&playlist=y5vX8ZqkHaY"
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    
+        <div id="content">
+            <h1>Subscribe to our newsletter to get the latest trends & news</h1>
+            <p>Join our database NOW!</p>
+            <p>Copyright ©2023 All rights reserved | This template is made with  by Colorlib</p>
+        </div>
+    </footer>
+</body>
+</html>
